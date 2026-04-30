@@ -1,16 +1,14 @@
 const sampleStocks = [
-  { symbol: "2330", name: "台積電", sector: "半導體", price: 820, changePct: 1.74, volume: 36120, yield: 1.42, pe: 22.6, pb: 5.4, yearChangePct: 38.2, monthlyRevenue: 195211000, monthlyRevenueYoY: 34.1, monthlyRevenueMoM: 7.8, quarterRevenue: 625532, operatingMargin: 42.0 },
-  { symbol: "2317", name: "鴻海", sector: "電子代工", price: 148.5, changePct: -0.67, volume: 81250, yield: 3.45, pe: 14.1, pb: 1.38, yearChangePct: 22.4, monthlyRevenue: 550200000, monthlyRevenueYoY: 18.5, monthlyRevenueMoM: 6.1, quarterRevenue: 1735800, operatingMargin: 3.0 },
-  { symbol: "2454", name: "聯發科", sector: "IC 設計", price: 1025, changePct: 0.49, volume: 7900, yield: 5.91, pe: 18.4, pb: 3.25, yearChangePct: 16.8, monthlyRevenue: 47220000, monthlyRevenueYoY: 9.7, monthlyRevenueMoM: -2.1, quarterRevenue: 142709, operatingMargin: 20.7 },
-  { symbol: "2412", name: "中華電", sector: "電信", price: 126, changePct: 0.0, volume: 12100, yield: 3.79, pe: 25.2, pb: 2.55, yearChangePct: 4.3, monthlyRevenue: 18500000, monthlyRevenueYoY: 2.9, monthlyRevenueMoM: 0.8, quarterRevenue: 55890, operatingMargin: 21.9 },
-  { symbol: "2881", name: "富邦金", sector: "金融保險", price: 76.4, changePct: 0.93, volume: 23800, yield: 4.58, pe: 12.8, pb: 1.31, yearChangePct: 13.2, monthlyRevenue: 62100000, monthlyRevenueYoY: 11.6, monthlyRevenueMoM: 4.0, quarterRevenue: 191200, operatingMargin: 14.2 },
-  { symbol: "2882", name: "國泰金", sector: "金融保險", price: 61.2, changePct: -0.16, volume: 31200, yield: 4.08, pe: 11.9, pb: 1.12, yearChangePct: 9.6, monthlyRevenue: 74600000, monthlyRevenueYoY: 8.4, monthlyRevenueMoM: 2.7, quarterRevenue: 223400, operatingMargin: 12.5 },
-  { symbol: "1301", name: "台塑", sector: "塑膠", price: 68.8, changePct: -1.01, volume: 11600, yield: 3.92, pe: 19.8, pb: 1.07, yearChangePct: -7.8, monthlyRevenue: 17600000, monthlyRevenueYoY: -5.7, monthlyRevenueMoM: 1.9, quarterRevenue: 50500, operatingMargin: 4.8 },
-  { symbol: "2002", name: "中鋼", sector: "鋼鐵", price: 24.15, changePct: 0.42, volume: 42800, yield: 2.48, pe: 28.5, pb: 0.91, yearChangePct: -2.6, monthlyRevenue: 30400000, monthlyRevenueYoY: -3.2, monthlyRevenueMoM: 2.3, quarterRevenue: 91200, operatingMargin: 2.1 },
-  { symbol: "2303", name: "聯電", sector: "半導體", price: 51.3, changePct: 1.18, volume: 65800, yield: 6.05, pe: 10.6, pb: 1.82, yearChangePct: 11.7, monthlyRevenue: 19100000, monthlyRevenueYoY: 4.4, monthlyRevenueMoM: 1.2, quarterRevenue: 57500, operatingMargin: 23.4 },
-  { symbol: "1216", name: "統一", sector: "食品", price: 83.2, changePct: 0.36, volume: 9500, yield: 3.79, pe: 21.4, pb: 3.1, yearChangePct: 6.1, monthlyRevenue: 51000000, monthlyRevenueYoY: 7.6, monthlyRevenueMoM: 3.4, quarterRevenue: 154100, operatingMargin: 7.8 },
-  { symbol: "5871", name: "中租-KY", sector: "其他金融", price: 162.5, changePct: -1.22, volume: 6800, yield: 3.88, pe: 11.1, pb: 1.72, yearChangePct: -12.9, monthlyRevenue: 8300000, monthlyRevenueYoY: -4.1, monthlyRevenueMoM: 0.5, quarterRevenue: 24900, operatingMargin: 31.4 },
-  { symbol: "2603", name: "長榮", sector: "航運", price: 188, changePct: 2.17, volume: 54500, yield: 5.32, pe: 8.9, pb: 1.46, yearChangePct: 29.5, monthlyRevenue: 39000000, monthlyRevenueYoY: 21.2, monthlyRevenueMoM: 5.9, quarterRevenue: 118600, operatingMargin: 28.0 }
+  { symbol: "2330", name: "台積電", market: "上市", productType: "股票", sector: "半導體", price: 820, changePct: 1.74, volume: 36120, yield: 1.42, pe: 22.6, pb: 5.4, yearChangePct: 38.2, monthlyRevenue: 195211000, monthlyRevenueYoY: 34.1, monthlyRevenueMoM: 7.8, quarterRevenue: 625532, operatingMargin: 42.0 },
+  { symbol: "0050", name: "元大台灣50", market: "上市", productType: "ETF", sector: "ETF", price: 186.3, changePct: 0.54, volume: 39800, yield: null, pe: null, pb: null, yearChangePct: 25.1, monthlyRevenue: null, monthlyRevenueYoY: null, monthlyRevenueMoM: null, quarterRevenue: null, operatingMargin: null },
+  { symbol: "00679B", name: "元大美債20年", market: "上櫃", productType: "ETF/債券ETF", sector: "ETF", price: 26.99, changePct: 0.41, volume: 21942, yield: null, pe: null, pb: null, yearChangePct: 3.8, monthlyRevenue: null, monthlyRevenueYoY: null, monthlyRevenueMoM: null, quarterRevenue: null, operatingMargin: null },
+  { symbol: "2317", name: "鴻海", market: "上市", productType: "股票", sector: "電子代工", price: 148.5, changePct: -0.67, volume: 81250, yield: 3.45, pe: 14.1, pb: 1.38, yearChangePct: 22.4, monthlyRevenue: 550200000, monthlyRevenueYoY: 18.5, monthlyRevenueMoM: 6.1, quarterRevenue: 1735800, operatingMargin: 3.0 },
+  { symbol: "1240", name: "茂生農經", market: "上櫃", productType: "股票", sector: "農業科技", price: 59.3, changePct: 0.34, volume: 280, yield: 5.9, pe: 12.2, pb: 1.75, yearChangePct: 8.9, monthlyRevenue: 268329, monthlyRevenueYoY: 7.33, monthlyRevenueMoM: 30.54, quarterRevenue: 2743.79, operatingMargin: 4.83 },
+  { symbol: "2454", name: "聯發科", market: "上市", productType: "股票", sector: "IC 設計", price: 1025, changePct: 0.49, volume: 7900, yield: 5.91, pe: 18.4, pb: 3.25, yearChangePct: 16.8, monthlyRevenue: 47220000, monthlyRevenueYoY: 9.7, monthlyRevenueMoM: -2.1, quarterRevenue: 142709, operatingMargin: 20.7 },
+  { symbol: "2412", name: "中華電", market: "上市", productType: "股票", sector: "電信", price: 126, changePct: 0.0, volume: 12100, yield: 3.79, pe: 25.2, pb: 2.55, yearChangePct: 4.3, monthlyRevenue: 18500000, monthlyRevenueYoY: 2.9, monthlyRevenueMoM: 0.8, quarterRevenue: 55890, operatingMargin: 21.9 },
+  { symbol: "2881", name: "富邦金", market: "上市", productType: "股票", sector: "金融保險", price: 76.4, changePct: 0.93, volume: 23800, yield: 4.58, pe: 12.8, pb: 1.31, yearChangePct: 13.2, monthlyRevenue: 62100000, monthlyRevenueYoY: 11.6, monthlyRevenueMoM: 4.0, quarterRevenue: 191200, operatingMargin: 14.2 },
+  { symbol: "2882", name: "國泰金", market: "上市", productType: "股票", sector: "金融保險", price: 61.2, changePct: -0.16, volume: 31200, yield: 4.08, pe: 11.9, pb: 1.12, yearChangePct: 9.6, monthlyRevenue: 74600000, monthlyRevenueYoY: 8.4, monthlyRevenueMoM: 2.7, quarterRevenue: 223400, operatingMargin: 12.5 },
+  { symbol: "2603", name: "長榮", market: "上市", productType: "股票", sector: "航運", price: 188, changePct: 2.17, volume: 54500, yield: 5.32, pe: 8.9, pb: 1.46, yearChangePct: 29.5, monthlyRevenue: 39000000, monthlyRevenueYoY: 21.2, monthlyRevenueMoM: 5.9, quarterRevenue: 118600, operatingMargin: 28.0 }
 ];
 
 const state = {
@@ -130,19 +128,30 @@ function shiftYearToken(dateToken, offset) {
   return `${year}${dateToken.slice(4)}`;
 }
 
+function toRocDate(dateToken) {
+  const year = Number(dateToken.slice(0, 4)) - 1911;
+  const month = dateToken.slice(4, 6);
+  const day = dateToken.slice(6, 8);
+  return `${year}/${month}/${day}`;
+}
+
 async function loadOfficialData() {
   const date = els.tradeDate.value || getTaipeiDate();
   const dateToken = date.replaceAll("-", "");
   setStatus("正在讀取證交所公開資料...");
 
   try {
-    const [market, valuation, yearChanges, monthlyRevenue, quarterRevenue] = await Promise.all([
+    const [twseMarket, tpexMarket, twseValuation, tpexValuation, yearChanges, monthlyRevenue, quarterRevenue] = await Promise.all([
       fetchTwseMarket(dateToken),
-      fetchTwseValuation(dateToken),
+      fetchTpexMarket(dateToken),
+      fetchTwseValuation(),
+      fetchTpexValuation(),
       fetchYearChange(dateToken),
       fetchMonthlyRevenue(),
       fetchQuarterRevenue()
     ]);
+    const market = [...twseMarket, ...tpexMarket];
+    const valuation = [...twseValuation, ...tpexValuation];
     const merged = mergeOfficialData(market, valuation, yearChanges, monthlyRevenue, quarterRevenue);
     if (!merged.length) throw new Error("查無可用資料，請改用前一個交易日。");
     state.stocks = merged;
@@ -150,7 +159,7 @@ async function loadOfficialData() {
     els.showWatchlist.textContent = "觀察清單";
     populateSectors();
     applyFilters();
-    setStatus(`已更新 ${date} 證交所上市股票資料、近一年漲幅、月營收與季營收，共 ${merged.length} 檔。`);
+    setStatus(`已更新 ${date} 上市、上櫃、ETF 資料，含近一年漲幅、月營收與季營收，共 ${merged.length} 檔。`);
   } catch (error) {
     setStatus(`官方資料讀取失敗：${error.message} 目前保留既有資料。`);
   }
@@ -163,12 +172,35 @@ async function fetchTwseMarket(dateToken) {
   return table.rows.map((row) => mapMarketRow(table.fields, row)).filter(Boolean);
 }
 
-async function fetchTwseValuation(dateToken) {
+async function fetchTwseValuation() {
   const url = "https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d";
   const data = await fetchJson(url);
   if (Array.isArray(data)) return data.map(mapOpenApiValuationRow).filter(Boolean);
   const table = findTable(data, ["證券代號", "殖利率", "本益比"]);
   return table.rows.map((row) => mapValuationRow(table.fields, row)).filter(Boolean);
+}
+
+async function fetchTpexMarket(dateToken) {
+  const rocDate = toRocDate(dateToken);
+  const url = `https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&se=EW&o=json&d=${encodeURIComponent(rocDate)}`;
+  const data = await fetchJson(url);
+  const table = findTable(data, ["代號", "收盤"]);
+  return table.rows.map((row) => mapTpexMarketRow(table.fields, row)).filter(Boolean);
+}
+
+async function fetchTpexValuation() {
+  const data = await fetchJson("https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis");
+  if (!Array.isArray(data)) throw new Error("上櫃本益比資料格式與預期不同。");
+  return data.map((row) => {
+    const symbol = stripHtml(row.SecuritiesCompanyCode);
+    if (!isSecurityCode(symbol)) return null;
+    return {
+      symbol,
+      yield: toNumber(row.YieldRatio),
+      pe: toNumber(row.PriceEarningRatio),
+      pb: toNumber(row.PriceBookRatio)
+    };
+  }).filter(Boolean);
 }
 
 async function fetchJson(url) {
@@ -208,15 +240,47 @@ function findTable(payload, requiredLabels) {
 function mapMarketRow(fields, row) {
   const symbol = valueByLabel(fields, row, "證券代號");
   const name = valueByLabel(fields, row, "證券名稱");
-  if (!/^\d{4}$/.test(symbol)) return null;
+  if (!isSecurityCode(symbol)) return null;
   const volumeShares = toNumber(valueByLabel(fields, row, "成交股數"));
   const sign = String(valueByLabel(fields, row, "漲跌(+/-)") || "");
   const change = toNumber(valueByLabel(fields, row, "漲跌價差"));
   const price = toNumber(valueByLabel(fields, row, "收盤價"));
-  const changePct = price && change !== null ? ((sign.includes("-") ? -change : change) / (price - (sign.includes("-") ? -change : change))) * 100 : null;
+  const signedChange = sign.includes("-") ? -change : change;
+  const changePct = price && change !== null ? (signedChange / (price - signedChange)) * 100 : null;
   return {
     symbol,
     name,
+    market: "上市",
+    productType: classifyProduct(symbol, name),
+    sector: guessSector(symbol, name),
+    price,
+    changePct,
+    volume: volumeShares === null ? null : Math.round(volumeShares / 1000),
+    yield: null,
+    pe: null,
+    pb: null,
+    yearChangePct: null,
+    monthlyRevenue: null,
+    monthlyRevenueYoY: null,
+    monthlyRevenueMoM: null,
+    quarterRevenue: null,
+    operatingMargin: null
+  };
+}
+
+function mapTpexMarketRow(fields, row) {
+  const symbol = valueByLabel(fields, row, "代號");
+  const name = valueByLabel(fields, row, "名稱");
+  if (!isSecurityCode(symbol)) return null;
+  const price = toNumber(valueByLabel(fields, row, "收盤"));
+  const change = toNumber(valueByLabel(fields, row, "漲跌"));
+  const volumeShares = toNumber(valueByLabel(fields, row, "成交股數"));
+  const changePct = price && change !== null ? (change / (price - change)) * 100 : null;
+  return {
+    symbol,
+    name,
+    market: "上櫃",
+    productType: classifyProduct(symbol, name),
     sector: guessSector(symbol, name),
     price,
     changePct,
@@ -235,7 +299,7 @@ function mapMarketRow(fields, row) {
 
 function mapValuationRow(fields, row) {
   const symbol = valueByLabel(fields, row, "證券代號");
-  if (!/^\d{4}$/.test(symbol)) return null;
+  if (!isSecurityCode(symbol)) return null;
   return {
     symbol,
     yield: toNumber(valueByLabel(fields, row, "殖利率")),
@@ -246,7 +310,7 @@ function mapValuationRow(fields, row) {
 
 function mapOpenApiValuationRow(row) {
   const symbol = stripHtml(row.Code);
-  if (!/^\d{4}$/.test(symbol)) return null;
+  if (!isSecurityCode(symbol)) return null;
   return {
     symbol,
     yield: toNumber(row.DividendYield),
@@ -258,8 +322,8 @@ function mapOpenApiValuationRow(row) {
 async function fetchYearChange(dateToken) {
   const baseDateToken = shiftYearToken(dateToken, -1);
   const [currentRows, baseRows] = await Promise.all([
-    fetchStockDayAll(dateToken),
-    fetchStockDayAll(baseDateToken)
+    fetchAllDailyPrices(dateToken),
+    fetchAllDailyPrices(baseDateToken)
   ]);
   const baseMap = new Map(baseRows.map((row) => [row.symbol, row.price]));
   return currentRows.map((row) => {
@@ -269,20 +333,42 @@ async function fetchYearChange(dateToken) {
   });
 }
 
-async function fetchStockDayAll(dateToken) {
+async function fetchAllDailyPrices(dateToken) {
+  const [twseRows, tpexRows] = await Promise.all([
+    fetchTwseDailyPrices(dateToken),
+    fetchTpexDailyPrices(dateToken)
+  ]);
+  return [...twseRows, ...tpexRows];
+}
+
+async function fetchTwseDailyPrices(dateToken) {
   const url = `https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY_ALL?date=${dateToken}&response=json`;
   const data = await fetchJson(url);
   const table = findTable(data, ["證券代號", "收盤價"]);
   return table.rows.map((row) => ({
     symbol: valueByLabel(table.fields, row, "證券代號"),
     price: toNumber(valueByLabel(table.fields, row, "收盤價"))
-  })).filter((row) => /^\d{4}$/.test(row.symbol));
+  })).filter((row) => isSecurityCode(row.symbol));
+}
+
+async function fetchTpexDailyPrices(dateToken) {
+  const rocDate = toRocDate(dateToken);
+  const url = `https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&se=EW&o=json&d=${encodeURIComponent(rocDate)}`;
+  const data = await fetchJson(url);
+  const table = findTable(data, ["代號", "收盤"]);
+  return table.rows.map((row) => ({
+    symbol: valueByLabel(table.fields, row, "代號"),
+    price: toNumber(valueByLabel(table.fields, row, "收盤"))
+  })).filter((row) => isSecurityCode(row.symbol));
 }
 
 async function fetchMonthlyRevenue() {
-  const data = await fetchJson("https://openapi.twse.com.tw/v1/opendata/t187ap05_L");
-  if (!Array.isArray(data)) throw new Error("月營收資料格式與預期不同。");
-  return data.map((row) => ({
+  const [twseData, tpexData] = await Promise.all([
+    fetchJson("https://openapi.twse.com.tw/v1/opendata/t187ap05_L"),
+    fetchJson("https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O")
+  ]);
+  if (!Array.isArray(twseData) || !Array.isArray(tpexData)) throw new Error("月營收資料格式與預期不同。");
+  return [...twseData, ...tpexData].map((row) => ({
     symbol: stripHtml(row["公司代號"]),
     monthlyRevenuePeriod: stripHtml(row["資料年月"]),
     monthlyRevenue: toNumber(row["營業收入-當月營收"]),
@@ -290,13 +376,23 @@ async function fetchMonthlyRevenue() {
     monthlyRevenueYoY: toNumber(row["營業收入-去年同月增減(%)"]),
     cumulativeRevenue: toNumber(row["累計營業收入-當月累計營收"]),
     cumulativeRevenueYoY: toNumber(row["累計營業收入-前期比較增減(%)"])
-  })).filter((row) => /^\d{4}$/.test(row.symbol));
+  })).filter((row) => isSecurityCode(row.symbol));
 }
 
 async function fetchQuarterRevenue() {
-  const data = await fetchJson("https://openapi.twse.com.tw/v1/opendata/t187ap17_L");
-  if (!Array.isArray(data)) throw new Error("季營收資料格式與預期不同。");
-  return data.map((row) => ({
+  const [twseData, tpexData] = await Promise.all([
+    fetchJson("https://openapi.twse.com.tw/v1/opendata/t187ap17_L"),
+    fetchJson("https://www.tpex.org.tw/openapi/v1/mopsfin_187ap17_O")
+  ]);
+  if (!Array.isArray(twseData) || !Array.isArray(tpexData)) throw new Error("季營收資料格式與預期不同。");
+  return [
+    ...twseData.map(mapTwseQuarterRevenueRow),
+    ...tpexData.map(mapTpexQuarterRevenueRow)
+  ].filter((row) => row && isSecurityCode(row.symbol));
+}
+
+function mapTwseQuarterRevenueRow(row) {
+  return {
     symbol: stripHtml(row["公司代號"]),
     quarterRevenuePeriod: `${stripHtml(row["年度"])}Q${stripHtml(row["季別"])}`,
     quarterRevenue: toNumber(row["營業收入(百萬元)"]),
@@ -304,7 +400,19 @@ async function fetchQuarterRevenue() {
     operatingMargin: toNumber(row["營業利益率(%)(營業利益)/(營業收入)"]),
     pretaxMargin: toNumber(row["稅前純益率(%)(稅前純益)/(營業收入)"]),
     netMargin: toNumber(row["稅後純益率(%)(稅後純益)/(營業收入)"])
-  })).filter((row) => /^\d{4}$/.test(row.symbol));
+  };
+}
+
+function mapTpexQuarterRevenueRow(row) {
+  return {
+    symbol: stripHtml(row.SecuritiesCompanyCode),
+    quarterRevenuePeriod: `${stripHtml(row.Year)}Q${stripHtml(row["季別"])}`,
+    quarterRevenue: toNumber(row["營業收入百萬元"]),
+    grossMargin: toNumber(row["毛利率"]),
+    operatingMargin: toNumber(row["營業利益率"]),
+    pretaxMargin: toNumber(row["稅前純益率"]),
+    netMargin: toNumber(row["稅後純益率"])
+  };
 }
 
 function mergeOfficialData(marketRows, valuationRows, yearChangeRows, monthlyRevenueRows, quarterRevenueRows) {
@@ -338,8 +446,26 @@ function toNumber(value) {
   return Number.isFinite(number) ? number : null;
 }
 
+function isSecurityCode(symbol) {
+  return /^[0-9A-Z]{4,7}$/.test(stripHtml(symbol));
+}
+
+function classifyProduct(symbol, name) {
+  const code = stripHtml(symbol);
+  const title = stripHtml(name).toUpperCase();
+  if (/^00/.test(code) || /ETF|ETN|指數|債|期貨|高息|美債|富櫃50|台灣50|中型100/i.test(title)) {
+    if (title.includes("ETN")) return "ETN";
+    if (title.includes("債") || code.endsWith("B")) return "ETF/債券ETF";
+    return "ETF";
+  }
+  if (code.endsWith("A") && !/^00/.test(code)) return "特別股";
+  return "股票";
+}
+
 function guessSector(symbol, name) {
   const code = Number(symbol);
+  const productType = classifyProduct(symbol, name);
+  if (productType.includes("ETF") || productType === "ETN") return "ETF";
   if (symbol.startsWith("28") || name.includes("金")) return "金融保險";
   if (symbol.startsWith("23") || symbol.startsWith("24") || name.includes("電") || name.includes("半導體")) return "電子";
   if (symbol.startsWith("12")) return "食品";
@@ -357,13 +483,24 @@ function populateSectors() {
   const current = els.sector.value;
   const sectors = [...new Set(state.stocks.map((stock) => stock.sector || "未分類"))].sort((a, b) => a.localeCompare(b, "zh-Hant"));
   els.sector.innerHTML = '<option value="all">全部產業</option>';
+  const marketOptions = [
+    ["market:上市", "上市"],
+    ["market:上櫃", "上櫃"],
+    ["type:ETF", "ETF/ETN"]
+  ];
+  marketOptions.forEach(([value, label]) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    els.sector.appendChild(option);
+  });
   sectors.forEach((sector) => {
     const option = document.createElement("option");
     option.value = sector;
     option.textContent = sector;
     els.sector.appendChild(option);
   });
-  els.sector.value = sectors.includes(current) ? current : "all";
+  els.sector.value = sectors.includes(current) || marketOptions.some(([value]) => value === current) ? current : "all";
 }
 
 function applyStrategy() {
@@ -451,7 +588,10 @@ function applyFilters() {
       const complete = stock.price !== null && stock.yield !== null && stock.pe !== null && stock.pb !== null;
       if (state.watchlistOnly && !state.watchlist.has(stock.symbol)) return false;
       if (keyword && !`${stock.symbol} ${stock.name}`.toLowerCase().includes(keyword)) return false;
-      if (sector !== "all" && stock.sector !== sector) return false;
+      if (sector === "market:上市" && stock.market !== "上市") return false;
+      if (sector === "market:上櫃" && stock.market !== "上櫃") return false;
+      if (sector === "type:ETF" && !String(stock.productType || "").includes("ETF") && stock.productType !== "ETN") return false;
+      if (!sector.includes(":") && sector !== "all" && stock.sector !== sector) return false;
       if (els.onlyComplete.checked && !complete) return false;
       if (stock.yield !== null && stock.yield < minYield) return false;
       if (stock.pe !== null && stock.pe > maxPe) return false;
@@ -533,7 +673,7 @@ function renderRows(rows) {
   els.stockRows.innerHTML = "";
   if (!rows.length) {
     const tr = document.createElement("tr");
-    tr.innerHTML = '<td class="empty-row" colspan="16">沒有符合條件的股票，請放寬篩選條件。</td>';
+    tr.innerHTML = '<td class="empty-row" colspan="18">沒有符合條件的股票，請放寬篩選條件。</td>';
     els.stockRows.appendChild(tr);
     return;
   }
@@ -547,6 +687,8 @@ function renderRows(rows) {
     tr.innerHTML = `
       <td class="symbol">${stock.symbol}</td>
       <td>${stock.name || "-"}</td>
+      <td>${stock.market || "-"}</td>
+      <td>${stock.productType || "-"}</td>
       <td><span class="pill">${stock.sector || "未分類"}</span></td>
       <td>${formatNumber(stock.price, 2)}</td>
       <td class="${changeClass}">${formatPercent(stock.changePct)}</td>
@@ -626,6 +768,8 @@ function parseCsv(text) {
     const stock = {
       symbol: readCsv(headers, cells, ["代號", "證券代號", "symbol"]),
       name: readCsv(headers, cells, ["名稱", "證券名稱", "name"]),
+      market: readCsv(headers, cells, ["市場", "market"]) || "自訂",
+      productType: readCsv(headers, cells, ["類型", "productType"]) || "股票",
       sector: readCsv(headers, cells, ["產業", "sector"]) || "未分類",
       price: toNumber(readCsv(headers, cells, ["價格", "收盤價", "price"])),
       changePct: toNumber(readCsv(headers, cells, ["漲跌幅", "changePct"])),
@@ -673,9 +817,9 @@ function readCsv(headers, cells, labels) {
 }
 
 function exportCsv() {
-  const rows = [["代號", "名稱", "產業", "價格", "漲跌幅", "成交量", "殖利率", "本益比", "股價淨值比", "近一年漲幅", "月營收年增率", "月營收月增率", "月營收", "季營收", "營益率", "分數"]];
+  const rows = [["代號", "名稱", "市場", "類型", "產業", "價格", "漲跌幅", "成交量", "殖利率", "本益比", "股價淨值比", "近一年漲幅", "月營收年增率", "月營收月增率", "月營收", "季營收", "營益率", "分數"]];
   state.filtered.forEach((stock) => {
-    rows.push([stock.symbol, stock.name, stock.sector, stock.price, stock.changePct, stock.volume, stock.yield, stock.pe, stock.pb, stock.yearChangePct, stock.monthlyRevenueYoY, stock.monthlyRevenueMoM, stock.monthlyRevenue, stock.quarterRevenue, stock.operatingMargin, stock.score]);
+    rows.push([stock.symbol, stock.name, stock.market, stock.productType, stock.sector, stock.price, stock.changePct, stock.volume, stock.yield, stock.pe, stock.pb, stock.yearChangePct, stock.monthlyRevenueYoY, stock.monthlyRevenueMoM, stock.monthlyRevenue, stock.quarterRevenue, stock.operatingMargin, stock.score]);
   });
   const csv = rows.map((row) => row.map(csvCell).join(",")).join("\n");
   const blob = new Blob([`\ufeff${csv}`], { type: "text/csv;charset=utf-8" });
