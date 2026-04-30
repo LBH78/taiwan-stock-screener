@@ -14,6 +14,7 @@ const sampleStocks = [
 const state = {
   stocks: [...sampleStocks],
   filtered: [],
+  dataMeta: null,
   sortKey: "score",
   sortDir: "desc",
   watchlistOnly: false,
@@ -64,6 +65,7 @@ function init() {
   bindEvents();
   populateSectors();
   applyFilters();
+  loadBundledData();
 }
 
 function bindEvents() {
@@ -136,6 +138,32 @@ function toRocDate(dateToken) {
 }
 
 async function loadOfficialData() {
+  await loadBundledData(true);
+}
+
+async function loadBundledData(forceMessage = false) {
+  try {
+    if (forceMessage) setStatus("正在載入完整上市、上櫃與 ETF 資料...");
+    const payload = await fetchJson(`data/market-data.json?v=${Date.now()}`);
+    if (!Array.isArray(payload.rows) || !payload.rows.length) {
+      throw new Error("完整資料檔格式不正確。");
+    }
+    state.stocks = payload.rows;
+    state.dataMeta = payload;
+    state.watchlistOnly = false;
+    els.showWatchlist.textContent = "觀察清單";
+    if (payload.tradeDate) els.tradeDate.value = payload.tradeDate;
+    populateSectors();
+    applyFilters();
+    setStatus(`已載入 ${payload.tradeDate || "最新"} 完整資料：上市 ${payload.twseCount || 0} 檔、上櫃 ${payload.tpexCount || 0} 檔，合計 ${payload.total || payload.rows.length} 檔，包含 ETF/ETN。`);
+  } catch (error) {
+    if (forceMessage) {
+      setStatus(`完整資料檔載入失敗：${error.message} 目前保留畫面資料。`);
+    }
+  }
+}
+
+async function loadOfficialDataLive() {
   const date = els.tradeDate.value || getTaipeiDate();
   const dateToken = date.replaceAll("-", "");
   setStatus("正在讀取證交所公開資料...");
