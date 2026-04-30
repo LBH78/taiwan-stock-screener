@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>台灣股市線上選股程式</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Taiwan Stock Screener</p>
+        <h1>台灣股市線上選股程式</h1>
+      </div>
+      <div class="source-panel">
+        <label for="tradeDate">資料日期</label>
+        <div class="date-row">
+          <input id="tradeDate" type="date">
+          <button id="loadOfficial" class="primary">更新官方資料</button>
+        </div>
+        <p id="dataStatus">目前使用內建範例資料。</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="toolbar" aria-label="篩選條件">
+        <div class="field search-field">
+          <label for="keyword">搜尋股票</label>
+          <input id="keyword" type="search" placeholder="輸入代號或名稱，例如 2330">
+        </div>
+        <div class="field">
+          <label for="sector">產業</label>
+          <select id="sector">
+            <option value="all">全部產業</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="strategy">快速策略</label>
+          <select id="strategy">
+            <option value="custom">自訂條件</option>
+            <option value="value">價值股：低本益比、低股價淨值比</option>
+            <option value="dividend">存股：殖利率優先</option>
+            <option value="momentum">強勢股：成交量與漲跌幅</option>
+            <option value="balanced">穩健：評價、殖利率、量能平衡</option>
+          </select>
+        </div>
+        <button id="resetFilters" class="ghost">重設</button>
+      </section>
+
+      <section class="content-grid">
+        <aside class="filters" aria-label="細部篩選">
+          <h2>條件設定</h2>
+          <div class="range-field">
+            <label for="minYield">最低殖利率 <span id="minYieldValue">0%</span></label>
+            <input id="minYield" type="range" min="0" max="12" step="0.5" value="0">
+          </div>
+          <div class="range-field">
+            <label for="maxPe">最高本益比 <span id="maxPeValue">60</span></label>
+            <input id="maxPe" type="range" min="5" max="60" step="1" value="60">
+          </div>
+          <div class="range-field">
+            <label for="maxPb">最高股價淨值比 <span id="maxPbValue">8</span></label>
+            <input id="maxPb" type="range" min="0.5" max="8" step="0.1" value="8">
+          </div>
+          <div class="range-field">
+            <label for="minVolume">最低成交量 <span id="minVolumeValue">0 張</span></label>
+            <input id="minVolume" type="range" min="0" max="200000" step="1000" value="0">
+          </div>
+          <div class="split-fields">
+            <div class="field">
+              <label for="minPrice">最低股價</label>
+              <input id="minPrice" type="number" min="0" step="1" placeholder="不限">
+            </div>
+            <div class="field">
+              <label for="maxPrice">最高股價</label>
+              <input id="maxPrice" type="number" min="0" step="1" placeholder="不限">
+            </div>
+          </div>
+          <label class="check-row">
+            <input id="onlyComplete" type="checkbox">
+            <span>只顯示資料完整股票</span>
+          </label>
+          <div class="import-box">
+            <label for="csvFile">匯入 CSV</label>
+            <input id="csvFile" type="file" accept=".csv,text/csv">
+            <p>欄位可包含：代號、名稱、產業、價格、漲跌幅、成交量、殖利率、本益比、股價淨值比。</p>
+          </div>
+        </aside>
+
+        <section class="results" aria-label="選股結果">
+          <div class="summary-row">
+            <div>
+              <p class="eyebrow">篩選結果</p>
+              <h2><span id="resultCount">0</span> 檔符合</h2>
+            </div>
+            <div class="actions">
+              <button id="exportCsv" class="ghost">匯出結果</button>
+              <button id="showWatchlist" class="ghost">觀察清單</button>
+            </div>
+          </div>
+
+          <div class="score-strip">
+            <div>
+              <span id="avgYield">-</span>
+              <small>平均殖利率</small>
+            </div>
+            <div>
+              <span id="avgPe">-</span>
+              <small>平均本益比</small>
+            </div>
+            <div>
+              <span id="avgVolume">-</span>
+              <small>平均成交量</small>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-sort="symbol">代號</th>
+                  <th data-sort="name">名稱</th>
+                  <th data-sort="sector">產業</th>
+                  <th data-sort="price">股價</th>
+                  <th data-sort="changePct">漲跌幅</th>
+                  <th data-sort="volume">成交量</th>
+                  <th data-sort="yield">殖利率</th>
+                  <th data-sort="pe">本益比</th>
+                  <th data-sort="pb">股價淨值比</th>
+                  <th data-sort="score">分數</th>
+                  <th>追蹤</th>
+                </tr>
+              </thead>
+              <tbody id="stockRows"></tbody>
+            </table>
+          </div>
+          <p class="notice">本工具用於資料整理與條件篩選，不構成買賣建議。投資前仍需自行判斷風險。</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
