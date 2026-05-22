@@ -712,9 +712,10 @@ function renderRows(rows) {
     const yearChangeClass = stock.yearChangePct > 0 ? "up" : stock.yearChangePct < 0 ? "down" : "";
     const monthlyRevenueClass = stock.monthlyRevenueYoY > 0 ? "up" : stock.monthlyRevenueYoY < 0 ? "down" : "";
     const watched = state.watchlist.has(stock.symbol);
+    const chartUrl = getTechnicalChartUrl(stock);
     tr.innerHTML = `
-      <td class="symbol">${stock.symbol}</td>
-      <td>${stock.name || "-"}</td>
+      <td class="symbol"><a class="stock-link" href="${chartUrl}" target="_blank" rel="noopener" title="開啟技術線圖">${stock.symbol}</a></td>
+      <td><a class="stock-link" href="${chartUrl}" target="_blank" rel="noopener" title="開啟技術線圖">${stock.name || "-"}</a></td>
       <td>${stock.market || "-"}</td>
       <td>${stock.productType || "-"}</td>
       <td><span class="pill">${stock.sector || "未分類"}</span></td>
@@ -738,6 +739,10 @@ function renderRows(rows) {
   els.stockRows.querySelectorAll(".star").forEach((button) => {
     button.addEventListener("click", () => toggleWatchlist(button.dataset.symbol));
   });
+}
+
+function getTechnicalChartUrl(stock) {
+  return `https://tw.stock.yahoo.com/quote/${encodeURIComponent(stock.symbol)}/technical-analysis`;
 }
 
 function formatNumber(value, digits = 2) {
