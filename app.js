@@ -713,6 +713,8 @@ function renderRows(rows) {
     const monthlyRevenueClass = stock.monthlyRevenueYoY > 0 ? "up" : stock.monthlyRevenueYoY < 0 ? "down" : "";
     const watched = state.watchlist.has(stock.symbol);
     const chartUrl = getTechnicalChartUrl(stock);
+    tr.classList.add("chart-row");
+    tr.dataset.chartUrl = chartUrl;
     tr.innerHTML = `
       <td class="symbol"><a class="stock-link" href="${chartUrl}" target="_blank" rel="noopener" title="開啟技術線圖">${stock.symbol}</a></td>
       <td><a class="stock-link" href="${chartUrl}" target="_blank" rel="noopener" title="開啟技術線圖">${stock.name || "-"}</a></td>
@@ -731,9 +733,17 @@ function renderRows(rows) {
       <td>${formatRevenue(stock.quarterRevenue, "百萬元")}</td>
       <td>${formatPercent(stock.operatingMargin)}</td>
       <td class="score">${stock.score}</td>
+      <td><a class="chart-button" href="${chartUrl}" target="_blank" rel="noopener">線圖</a></td>
       <td><button class="star ${watched ? "active" : ""}" data-symbol="${stock.symbol}" title="加入觀察清單">${watched ? "★" : "☆"}</button></td>
     `;
     els.stockRows.appendChild(tr);
+  });
+
+  els.stockRows.querySelectorAll(".chart-row").forEach((row) => {
+    row.addEventListener("click", (event) => {
+      if (event.target.closest("a, button")) return;
+      window.open(row.dataset.chartUrl, "_blank", "noopener");
+    });
   });
 
   els.stockRows.querySelectorAll(".star").forEach((button) => {
@@ -742,7 +752,8 @@ function renderRows(rows) {
 }
 
 function getTechnicalChartUrl(stock) {
-  return `https://tw.stock.yahoo.com/quote/${encodeURIComponent(stock.symbol)}/technical-analysis`;
+  const suffix = stock.market === "上櫃" ? "TWO" : "TW";
+  return `https://tw.stock.yahoo.com/quote/${encodeURIComponent(`${stock.symbol}.${suffix}`)}/technical-analysis`;
 }
 
 function formatNumber(value, digits = 2) {

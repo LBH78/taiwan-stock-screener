@@ -257,7 +257,7 @@ main {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 1620px;
+  min-width: 1690px;
 }
 
 th,
@@ -294,6 +294,10 @@ tbody tr:hover {
   background: #f8fbfa;
 }
 
+.chart-row {
+  cursor: pointer;
+}
+
 .symbol {
   font-weight: 800;
 }
@@ -307,6 +311,26 @@ tbody tr:hover {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.chart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--accent-dark);
+  background: #eef4f1;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.chart-button:hover {
+  border-color: #b8cec5;
+  background: #dfeee9;
 }
 
 .pill {
